@@ -6382,3 +6382,212 @@ body {
 	}
 
 }
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+/* Hidden on desktop */
+.mobile-menu-button,
+.mobile-nav {
+	display: none;
+}
+
+
+/* Tablet + Mobile */
+@media screen and (max-width: 900px) {
+
+	/* Header */
+	#header.modern-header {
+		height: 64px;
+		padding: 0 1.25em !important;
+	}
+
+	/* Hide desktop navigation */
+	.desktop-nav {
+		display: none !important;
+	}
+
+	/* Keep logo compact */
+	#header.modern-header .logo {
+		display: flex;
+		align-items: center;
+		min-width: 0;
+	}
+
+	#header.modern-header .logo strong {
+		font-size: 0.85em;
+		white-space: nowrap;
+	}
+
+	#header.modern-header .logo span {
+		font-size: 0.8em;
+		white-space: nowrap;
+	}
+
+
+	/* =========================
+	   HAMBURGER BUTTON
+	   ========================= */
+
+	.mobile-menu-button {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 5px;
+
+		width: 44px;
+		height: 44px;
+
+		padding: 0;
+		margin: 0;
+
+		background: transparent !important;
+		border: 0 !important;
+		box-shadow: none !important;
+
+		cursor: pointer;
+
+		position: relative;
+		z-index: 1002;
+	}
+
+	.mobile-menu-button span {
+		display: block;
+
+		width: 24px;
+		height: 2px;
+
+		margin: 0 auto;
+
+		background: #f4f6fa;
+
+		border-radius: 2px;
+
+		transition:
+			transform 0.25s ease,
+			opacity 0.25s ease;
+	}
+
+
+	/* Hamburger turns into X */
+	.mobile-menu-button.active span:nth-child(1) {
+		transform: translateY(7px) rotate(45deg);
+	}
+
+	.mobile-menu-button.active span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.mobile-menu-button.active span:nth-child(3) {
+		transform: translateY(-7px) rotate(-45deg);
+	}
+
+
+	/* =========================
+	   MOBILE MENU
+	   ========================= */
+
+	.mobile-nav {
+		display: flex;
+		flex-direction: column;
+
+		position: absolute;
+
+		top: 64px;
+		left: 0;
+
+		width: 100%;
+
+		padding: 1em 1.25em 1.4em;
+
+		background: rgba(13, 17, 23, 0.99);
+
+		border-top: 1px solid rgba(255, 255, 255, 0.06);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+
+		/* Closed by default */
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px);
+		pointer-events: none;
+
+		transition:
+			opacity 0.2s ease,
+			transform 0.2s ease,
+			visibility 0.2s ease;
+
+		z-index: 1001;
+	}
+
+
+	/* Menu open */
+	.mobile-nav.active {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+
+	/* Navigation links */
+	.mobile-nav a {
+		display: block;
+
+		padding: 0.9em 0;
+
+		color: #cbd3df !important;
+
+		font-size: 0.9em;
+		font-weight: 600;
+
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+
+		text-decoration: none;
+
+		border-bottom:
+			1px solid rgba(255, 255, 255, 0.07) !important;
+	}
+
+	.mobile-nav a:hover {
+		color: #ffffff !important;
+	}
+
+
+	/* Resume button */
+	.mobile-nav .mobile-resume {
+		margin-top: 1em;
+
+		padding: 0.8em 1em;
+
+		text-align: center;
+
+		background: #79a7ff;
+
+		color: #0d1117 !important;
+
+		border-radius: 7px;
+
+		border-bottom: none !important;
+
+		font-weight: 700;
+	}
+}
+
+
+/* Extra-small phones */
+@media screen and (max-width: 480px) {
+
+	/* Hide "Portfolio" text to save space */
+	#header.modern-header .logo span {
+		display: none;
+	}
+
+	#header.modern-header .logo strong {
+		font-size: 0.82em;
+		letter-spacing: 0.09em;
+	}
+}

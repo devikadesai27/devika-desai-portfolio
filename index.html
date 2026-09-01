@@ -25,22 +25,48 @@
 		<span>Portfolio</span>
 	</a>
 
+	<!-- Desktop Navigation -->
 	<nav class="desktop-nav">
-	<a href="#about">About</a>
-	<a href="#experience">Experience</a>
-	<a href="#projects">Projects</a>
-	<a href="#contact">Contact</a>
+		<a href="#about">About</a>
+		<a href="#experience">Experience</a>
+		<a href="#projects">Projects</a>
+		<a href="#contact">Contact</a>
 
-	<a href="assets/resume/DevikaDesai_Resume.pdf"
-	   class="nav-resume"
-	   target="_blank"
-	   rel="noopener noreferrer">
-		Resume
-	</a>
-</nav>
+		<a href="assets/resume/DevikaDesai_Resume.pdf"
+		   class="nav-resume"
+		   target="_blank"
+		   rel="noopener noreferrer">
+			Resume
+		</a>
+	</nav>
+
+	<!-- Mobile Menu Button -->
+	<button class="mobile-menu-button"
+			id="mobileMenuButton"
+			type="button"
+			aria-label="Open navigation menu"
+			aria-expanded="false">
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+
+	<!-- Mobile Navigation -->
+	<nav class="mobile-nav" id="mobileNav">
+		<a href="#about">About</a>
+		<a href="#experience">Experience</a>
+		<a href="#projects">Projects</a>
+		<a href="#contact">Contact</a>
+
+		<a href="assets/resume/DevikaDesai_Resume.pdf"
+		   class="mobile-resume"
+		   target="_blank"
+		   rel="noopener noreferrer">
+			Resume
+		</a>
+	</nav>
 
 </header>
-
 <!-- Modern Hero -->
 <section id="banner" class="modern-hero">
 
@@ -754,13 +780,59 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
-	</body>
+
+<!-- Mobile Navigation -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+	const menuButton = document.getElementById("mobileMenuButton");
+	const mobileNav = document.getElementById("mobileNav");
+
+	if (!menuButton || !mobileNav) return;
+
+	menuButton.addEventListener("click", function () {
+
+		const isOpen = mobileNav.classList.toggle("active");
+
+		menuButton.classList.toggle("active", isOpen);
+		menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+	});
+
+	mobileNav.querySelectorAll("a").forEach(function (link) {
+
+		link.addEventListener("click", function () {
+
+			mobileNav.classList.remove("active");
+			menuButton.classList.remove("active");
+			menuButton.setAttribute("aria-expanded", "false");
+
+		});
+
+	});
+
+	window.addEventListener("resize", function () {
+
+		if (window.innerWidth > 900) {
+
+			mobileNav.classList.remove("active");
+			menuButton.classList.remove("active");
+			menuButton.setAttribute("aria-expanded", "false");
+
+		}
+
+	});
+
+});
+</script>
+
+</body>
 </html>
